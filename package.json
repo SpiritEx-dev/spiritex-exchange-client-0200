@@ -19,6 +19,7 @@
   "main": "src/ExchangeClient.js",
   "scripts": {
     "test": "npx mocha -u bdd tests/*.js --timeout 0 --slow 20 --colors",
+    "build docs": "npx @liquicode/devops --tasks .\\build\\build.tasks.js build_docs",
     "publish version": "npx @liquicode/devops --tasks .\\build\\build.tasks.js publish_version",
     "start new version": "npx @liquicode/devops --tasks .\\build\\build.tasks.js start_new_version"
 },

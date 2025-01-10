@@ -13,7 +13,7 @@ module.exports = {
 		// Run tests and capture the output.
 		{
 			$Shell: {
-				command: 'npx mocha -u bdd test/*.js --timeout 0 --slow 10',
+				command: 'npx mocha -u bdd tests/*.js --timeout 0 --slow 20',
 				out: { filename: 'docs/tests.md' },
 				err: { console: true },
 			}

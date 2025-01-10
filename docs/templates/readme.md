@@ -1,10 +1,14 @@
 # <%- Context.Package.name %>
 
+------------------------------------------
 > ***<%- Context.Package.description %>***
 >
-> Home: [<%- Context.Package.homepage %>](<%- Context.Package.homepage %>)
->
 > Version: <%- Context.Package.version %>
+>
+> Code: [<%- Context.Package.repository.url %>](<%- Context.Package.repository.url %>)
+>
+> Docs: [<%- Context.Package.homepage %>](<%- Context.Package.homepage %>)
+------------------------------------------
 
 This is a client for the SpiritEx Market Exchange API.
 SpiritEx Market is an online exchange for trading whiskey as portions of casks.
