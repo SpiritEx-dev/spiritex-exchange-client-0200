@@ -63,21 +63,6 @@ module.exports = {
 
 	],
 
-	npm_publish_version: [
-
-		// Update npmjs.com with new package.
-		{
-			$Shell: {
-				command: 'npm publish . --access public',
-				// output: 'console', errors: 'console', halt_on_error: false
-				out: { console: true },
-				err: { console: true },
-				halt_on_error: false
-			}
-		},
-
-	],
-
 	git_publish_version: [
 
 		// Update github and finalize the version.
@@ -125,6 +110,21 @@ module.exports = {
 
 	],
 
+	npm_publish_version: [
+
+		// Update npmjs.com with new package.
+		{
+			$Shell: {
+				command: 'npm publish . --access public',
+				// output: 'console', errors: 'console', halt_on_error: false
+				out: { console: true },
+				err: { console: true },
+				halt_on_error: false
+			}
+		},
+
+	],
+
 	publish_version: [
 
 		// Finalize and publish the existing version.
@@ -132,7 +132,7 @@ module.exports = {
 		{ $RunTask: { task: 'run_tests' } },
 		{ $RunTask: { task: 'build_docs' } },
 		{ $RunTask: { task: 'git_publish_version' } },
-		// { $RunTask: { task: 'npm_publish_version' } },
+		{ $RunTask: { task: 'npm_publish_version' } },
 
 	],
 

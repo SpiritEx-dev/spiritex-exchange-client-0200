@@ -1,7 +1,7 @@
-# spiritex-exchange-client
+# @spiritex/exchange-client
 
 ------------------------------------------
-> ***Node and Browser Client for the SpiritEx Market Exchange***
+> ***Client for the SpiritEx Market Exchange (NodeJS+Browser)***
 >
 > Version: 0.2.5
 >
