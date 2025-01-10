@@ -3,7 +3,7 @@
 ------------------------------------------
 > ***Client for the SpiritEx Market Exchange (NodeJS+Browser)***
 >
-> Version: 0.2.5
+> Version: 0.2.6
 >
 > Code: [https://github.com/SpiritEx-dev/spiritex-exchange-client](https://github.com/SpiritEx-dev/spiritex-exchange-client)
 >
@@ -21,15 +21,16 @@ This can only be done via the SpiritEx Market Website.
 All account funding actions must also performed via the SpiritEx Market Website.
 
 
-## Resources
+## Developer Resources
 
 | **Resource**  	| **Location**                                          	|
 |---------------	|-------------------------------------------------------	|
-| Website       	| https://market.spiritex.live                          	|
 | Documentation 	| https://docs.spiritex.live                            	|
-| Source Code   	| https://github.com/@SpiritEx/SpiritEx-Exchange-Client 	|
+| Testing Website  	| https://market.spiritex.live                          	|
 | Testing Server   	| https://market-api.spiritex.live                      	|
-
+| Source Code   	| https://github.com/@SpiritEx/SpiritEx-Exchange-Client 	|
+| Npm Package   	| https://www.npmjs.com/package/@spiritex/exchange-client 	|
+| JSDelivr Package 	| https://www.jsdelivr.com/package/npm/@spiritex/exchange-client	|
 
 ## Getting Started
 
