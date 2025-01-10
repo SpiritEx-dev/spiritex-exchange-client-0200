@@ -8,6 +8,7 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 
 	//---------------------------------------------------------------------
 	var ThisSession = null;
+	var ThisClerk = null;
 
 
 	//---------------------------------------------------------------------

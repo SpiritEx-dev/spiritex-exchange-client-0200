@@ -9,7 +9,7 @@ module.exports =
 	mode: 'production',
 	output: {
 		path: __dirname,
-		filename: `../dist/ExchangeClient.min.js`,
+		filename: `../src/ExchangeClient.min.js`,
 
 		library: 'jsongin',
 		libraryTarget: 'umd',
