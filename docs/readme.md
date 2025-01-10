@@ -3,7 +3,7 @@
 ------------------------------------------
 > ***Node and Browser Client for the SpiritEx Market Exchange***
 >
-> Version: 0.2.4
+> Version: 0.2.5
 >
 > Code: [https://github.com/SpiritEx-dev/spiritex-exchange-client](https://github.com/SpiritEx-dev/spiritex-exchange-client)
 >

@@ -1,38 +1,38 @@
 {
-  "name": "spiritex-exchange-client",
-  "version": "0.2.4",
-  "description": "Node and Browser Client for the SpiritEx Market Exchange",
-  "license": "",
-  "homepage": "https://docs.spiritex.live",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SpiritEx-dev/spiritex-exchange-client"
-  },
-  "authors": [
-    {
-      "name": "Andre' G. Bowlin",
-      "email": "andre@sicariiventuredev.com",
-      "homepage": ""
+    "name": "spiritex-exchange-client",
+    "version": "0.2.5",
+    "description": "Node and Browser Client for the SpiritEx Market Exchange",
+    "license": "",
+    "homepage": "https://docs.spiritex.live",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SpiritEx-dev/spiritex-exchange-client"
+    },
+    "authors": [
+        {
+            "name": "Andre' G. Bowlin",
+            "email": "andre@sicariiventuredev.com",
+            "homepage": ""
+        }
+    ],
+    "public": false,
+    "main": "src/ExchangeClient.js",
+    "scripts": {
+        "test": "npx mocha -u bdd tests/*.js --timeout 0 --slow 20 --colors",
+        "build docs": "npx @liquicode/devops --tasks .\\build\\build.tasks.js build_docs",
+        "publish version": "npx @liquicode/devops --tasks .\\build\\build.tasks.js publish_version",
+        "start new version": "npx @liquicode/devops --tasks .\\build\\build.tasks.js start_new_version"
+    },
+    "keywords": [
+        "spiritex",
+        "spiritex market",
+        "spiritex exchange"
+    ],
+    "devDependencies": {
+        "@liquicode/devops": "^0.0.20",
+        "mocha": "^10.4.0",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-node-externals": "^3.0.0"
     }
-  ],
-  "public": false,
-  "main": "src/ExchangeClient.js",
-  "scripts": {
-    "test": "npx mocha -u bdd tests/*.js --timeout 0 --slow 20 --colors",
-    "build docs": "npx @liquicode/devops --tasks .\\build\\build.tasks.js build_docs",
-    "publish version": "npx @liquicode/devops --tasks .\\build\\build.tasks.js publish_version",
-    "start new version": "npx @liquicode/devops --tasks .\\build\\build.tasks.js start_new_version"
-},
-  "keywords": [
-    "spiritex",
-    "spiritex market",
-    "spiritex exchange"
-  ],
-  "devDependencies": {
-    "@liquicode/devops": "^0.0.20",
-    "mocha": "^10.4.0",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-node-externals": "^3.0.0"
-}
 }
