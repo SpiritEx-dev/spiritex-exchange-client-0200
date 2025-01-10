@@ -1,7 +1,18 @@
 # @spiritex/exchange-client
 
 
+# Project TODO
+
+- Move files from the `src` folder into the root project folder.
+
+
 # Project History
+
+
+v0.2.7 (???)
+---------------------------------------------------------------------
+
+- Added `.npmignore` to exclude internal files from publication.
 
 
 v0.2.6 (2025-01-10)
