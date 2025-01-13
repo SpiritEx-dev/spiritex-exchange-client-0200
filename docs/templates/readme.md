@@ -155,7 +155,7 @@ Limited information about Offerings are also publicly available.
 
 ### Orders
 
-- `Client.Orders.List( AccountID )`
+- `Client.Orders.List( AccountID, IncludeClosed )`
 - `Client.Orders.Get( OrderID )`
 - `Client.Orders.Create( AccountID, OfferingID, OrderInfo )`
 - `Client.Orders.Close( OrderID )`

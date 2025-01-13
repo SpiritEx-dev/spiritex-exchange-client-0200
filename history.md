@@ -9,10 +9,13 @@
 # Project History
 
 
-v0.2.7 (???)
+v0.2.7 (2025-01-13)
 ---------------------------------------------------------------------
 
 - Added `.npmignore` to exclude internal files from publication.
+- Added data cache functions to client.
+- Automatically refreshes session when credentials are cached.
+- Added `PriceFormat` parameter to `PublicOfferings.GetMarket()`.
 
 
 v0.2.6 (2025-01-10)

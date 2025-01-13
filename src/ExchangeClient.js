@@ -7,8 +7,15 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 
 
 	//---------------------------------------------------------------------
+	var ThisCache = {};
 	var ThisSession = null;
 	var ThisClerk = null;
+
+	var CachedCredentials = {
+		UserEmail: null,
+		Password: null,
+	};
+
 
 
 	//---------------------------------------------------------------------
@@ -93,18 +100,32 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 			}
 
 			// Request the response.
-			var response = await fetch( request_url, request_init );
+			var fetch_response = await fetch( request_url, request_init );
+			if ( !fetch_response ) { throw new Error( `Received an empty response from fetch.` ); }
+
+			// Check for network errors.
+			if ( !fetch_response.ok )
+			{
+				if ( fetch_response.status === 511 )
+				{
+					console.log( 'Session token has expired, re-authenticating.' );
+					ThisSession = await call_api( '/Session/Signin',
+						{
+							email_address: CachedCredentials.UserEmail,
+							password: CachedCredentials.Password,
+						}, null );
+					if ( !ThisSession ) { throw new Error( `Failed to re-authenticate.` ); }
+					// fetch_response = await fetch( request_url, request_init );
+					return await call_api( Command, Parameters, CallOptions );
+				}
+				else
+				{
+					throw new NetworkError( fetch_response );
+				}
+			}
 
 			// Decode the response.
-			if ( !response )
-			{
-				throw new Error( `Received an empty response from the server.` );
-			}
-			else if ( !response.ok )
-			{
-				throw new NetworkError( response );
-			}
-			var api_response = await response.json();
+			var api_response = await fetch_response.json();
 
 			// Log responses.
 			if ( ClientOptions.log_responses )
@@ -183,6 +204,58 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 		//=====================================================================
 		//=====================================================================
 		//
+		//	Cache
+		//
+		//=====================================================================
+		//=====================================================================
+
+
+		//---------------------------------------------------------------------
+		SetCache:
+			function SetCache( Key, Data, ExpirationMS )
+			{
+				var cache_entry = {
+					Data: Data,
+					expires: Date.now() + ExpirationMS,
+				};
+				ThisCache[ Key ] = cache_entry;
+				return;
+			},
+
+
+		//---------------------------------------------------------------------
+		GetCache:
+			function GetCache( Key )
+			{
+				var cache_entry = ThisCache[ Key ];
+				if ( cache_entry.expires <= Date.now() )
+				{
+					delete ThisCache[ Key ];
+					return null;
+				}
+				return cache_entry.Data;
+			},
+
+
+		//---------------------------------------------------------------------
+		ClearCache:
+			function ClearCache( Key )
+			{
+				if ( Key )
+				{
+					delete ThisCache[ Key ];
+				}
+				else
+				{
+					ThisCache = {};
+				}
+				return;
+			},
+
+
+		//=====================================================================
+		//=====================================================================
+		//
 		//	Authenticate
 		//
 		//=====================================================================
@@ -200,6 +273,11 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 						password: Password
 					}, null );
 				if ( !ThisSession ) { return null; }
+				if ( CacheCredentials )
+				{
+					CachedCredentials.UserEmail = UserEmail;
+					CachedCredentials.Password = Password;
+				}
 				return ThisSession.User;
 			},
 
@@ -207,7 +285,7 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 		//---------------------------------------------------------------------
 		// For Browser Clients
 		BrowserClerk:
-			async function ( Clerk, CacheCredentials = true )
+			async function ( Clerk )
 			{
 				ThisClerk = Clerk;
 				ThisSession = {};
@@ -548,11 +626,12 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 			},
 
 			//---------------------------------------------------------------------
-			GetMarket: async function ( OfferingID, CallOptions = null )
+			GetMarket: async function ( OfferingID, PriceFormat, CallOptions = null )
 			{
 				return await call_api( '/PublicOffering/Market',
 					{
 						offering_id: OfferingID,
+						price_format: PriceFormat,
 					}, CallOptions );
 			},
 
