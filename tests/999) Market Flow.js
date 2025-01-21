@@ -131,6 +131,7 @@ describe( `999) Market Flow Test`, function ()
 				offering_name: 'Whiskey',
 				description: 'New Whiskey Casks Offering',
 				asset_info: {
+					bottle_date: '04-15-2030',
 					bottle_volume: 750,
 					Casks: [
 						{ cask_type: 'Barrel', category: 'Speyside', AYS: 0, LOA: 20, ABV: 0.20 },
