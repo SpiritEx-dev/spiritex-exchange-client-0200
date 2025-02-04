@@ -356,6 +356,58 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 		//=====================================================================
 		//=====================================================================
 		//
+		//	Directory Routes
+		//
+		//=====================================================================
+		//=====================================================================
+
+
+		Directory: {
+
+			//---------------------------------------------------------------------
+			FindItems: async function ( FacilityNameLike, BrandNameLike, Limit = 0, CallOptions = null )
+			{
+				return await call_api( '/Directory/FindItems',
+					{
+						facility_name: FacilityNameLike,
+						brand_name: BrandNameLike,
+						limit: Limit,
+					}, CallOptions );
+			},
+
+			//---------------------------------------------------------------------
+			GetFacility: async function ( FacilityID, CallOptions = null )
+			{
+				return await call_api( '/Directory/GetFacility',
+					{
+						facility_id: FacilityID,
+					}, CallOptions );
+			},
+
+			//---------------------------------------------------------------------
+			GetBrand: async function ( BrandID, CallOptions = null )
+			{
+				return await call_api( '/Directory/GetBrand',
+					{
+						brand_id: BrandID,
+					}, CallOptions );
+			},
+
+			//---------------------------------------------------------------------
+			GetFacilityBrands: async function ( FacilityID, CallOptions = null )
+			{
+				return await call_api( '/Directory/GetFacilityBrands',
+					{
+						facility_id: FacilityID,
+					}, CallOptions );
+			},
+
+		},
+
+
+		//=====================================================================
+		//=====================================================================
+		//
 		//	Account Routes
 		//
 		//=====================================================================

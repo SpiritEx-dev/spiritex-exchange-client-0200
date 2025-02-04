@@ -49,6 +49,28 @@
 			"internalConsoleOptions": "openOnSessionStart",
 		},
 		{
+			"name": "150) Directory Tests",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/mocha",
+			"args": [
+				"-u",
+				"bdd",
+				"tests/150) *.js",
+				"--timeout",
+				"0",
+				"--slow",
+				"20",
+				"--colors",
+			],
+			"outputCapture": "std",
+			"internalConsoleOptions": "openOnSessionStart",
+		},
+		{
 			"name": "200) Accounts Tests",
 			"type": "node",
 			"request": "launch",
