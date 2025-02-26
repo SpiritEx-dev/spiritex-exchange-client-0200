@@ -661,11 +661,11 @@ function NewExchangeClient( ServerUrl, ClientOptions )
 		PublicOfferings: {
 
 			//---------------------------------------------------------------------
-			List: async function ( CallOptions = null )
+			List: async function ( ListOptions = {}, CallOptions = null )
 			{
 				return await call_api( '/PublicOfferings',
-					{
-					}, CallOptions );
+					ListOptions,
+					CallOptions );
 			},
 
 			//---------------------------------------------------------------------
