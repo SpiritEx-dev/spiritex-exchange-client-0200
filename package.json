@@ -1,7 +1,7 @@
 {
     "name": "@spiritex/exchange-client",
-    "version": "0.2.12",
-    "description": "Client for the SpiritEx Market Exchange (NodeJS+Browser)",
+    "version": "0.3.00",
+    "description": "Client for the SpiritEx Exchange API (NodeJS+Browser)",
     "license": "",
     "homepage": "https://docs.spiritex.live",
     "repository": {
@@ -16,7 +16,7 @@
         }
     ],
     "public": true,
-    "main": "src/ExchangeClient.js",
+    "main": "ExchangeClient.js",
     "scripts": {
         "test": "npx mocha -u bdd tests/*.js --timeout 0 --slow 20 --colors",
         "build docs": "npx @liquicode/devops --tasks .\\build\\build.tasks.js build_docs",
